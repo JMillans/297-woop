@@ -6,7 +6,7 @@
 
 OpenSEO es una base aprovechable para 297 WOOP. Ya aporta proyectos, memoria compartida, informes, rastreo, GSC, código de GA4 y herramientas MCP. Sus procedimientos editoriales priorizan intención, adecuación al negocio y evidencia. Debemos ampliar la trazabilidad del conocimiento, corregir algunas instrucciones y separar las capacidades por proveedor antes de emplearlo como sistema habitual.
 
-La base técnica local está probada. La fase 0 mantiene pendiente la comprobación de las cuentas externas, especialmente el plan y las capacidades efectivas de Metricool y la viabilidad del uso previsto de Keyword Planner. Ninguna fuente externa está conectada a este entorno de prueba.
+La base técnica local está probada. El usuario ha confirmado que dispone de Metricool Advanced o Custom, un plan con acceso a la API. La fase 0 mantiene pendiente la comprobación de las cuentas externas, especialmente las capacidades efectivas de Metricool y la viabilidad del uso previsto de Keyword Planner. Ninguna fuente externa está conectada a este entorno de prueba.
 
 ## Base y evidencia de ejecución
 
@@ -78,7 +78,7 @@ Estas correcciones quedan identificadas para fase 5; aún no se han modificado l
 | GSC y GA4 | Implementación presente; sin OAuth configurado ni propiedades conectadas. | Configurar proyecto Google, APIs, callbacks y secreto de cifrado; verificar una propiedad real. |
 | Ads y Keyword Planner | No hay acceso de cuenta verificado. | Comprobar developer token y nivel de planificación. La nota upstream `0004-keyword-data-source-routing.md` rechaza Keyword Planner directo para su uso SaaS por política; esa interpretación debe contrastarse con las condiciones oficiales y nuestro uso local concreto. No se da por resuelta por disponer de Basic o Standard. |
 | Semrush | Sin cuenta ni plan verificados en este entorno. | Confirmar funciones, acceso API/MCP y límites antes de asumir que una prueba los incluye. |
-| Metricool | Pendiente de respuesta sobre el plan y de verificar marcas y permisos reales. | API en Advanced/Custom; evaluar MCP según plan, histórico, métricas y disponibilidad de web/blog. [API](https://help.metricool.com/es/guia-basica-para-la-integracion-de-api-r97af), [MCP](https://metricool.com/metricool-mcp-claude/). |
+| Metricool | El usuario confirma Advanced o Custom el 15 de octubre de 2026; acceso efectivo, marcas y permisos aún sin probar. | Priorizar la API para sincronización e histórico; validar una lectura de marcas y métricas. Evaluar MCP para consultas del agente. [API](https://help.metricool.com/es/guia-basica-para-la-integracion-de-api-r97af), [MCP](https://metricool.com/metricool-mcp-claude/). |
 | Clarity | Conector pendiente de construir. | Verificar proyecto y acceso; diseñar recogida histórica y límites en fase 4. |
 
 ## Arranque reproducible
@@ -120,7 +120,7 @@ Para una copia completa de este estado local, detener el servicio antes de archi
 | Base original y dependencias registradas | Completado en esta auditoría. |
 | Matriz de conocimiento y lagunas | Completada para las áreas y fuentes indicadas; correcciones asignadas a fases posteriores. |
 | DataForSEO opcional para el núcleo | Arranque y contexto sin clave verificados; adaptación de capacidades y mensajes en fase 2. |
-| Cuenta y capacidades Metricool | Pendiente de plan y prueba de cuenta. |
+| Cuenta y capacidades Metricool | Plan con API confirmado por el usuario; pendiente prueba de cuenta, marcas y datos disponibles. |
 
 ## Siguiente entrega
 
