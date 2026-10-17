@@ -6,7 +6,7 @@
 
 OpenSEO es una base aprovechable para 297 WOOP. Ya aporta proyectos, memoria compartida, informes, rastreo, GSC, código de GA4 y herramientas MCP. Sus procedimientos editoriales priorizan intención, adecuación al negocio y evidencia. Debemos ampliar la trazabilidad del conocimiento, corregir algunas instrucciones y separar las capacidades por proveedor antes de emplearlo como sistema habitual.
 
-La base técnica local está probada. El usuario ha confirmado que dispone de Metricool Advanced o Custom, un plan con acceso a la API. La fase 0 mantiene pendiente la comprobación de las cuentas externas, especialmente las capacidades efectivas de Metricool y la viabilidad del uso previsto de Keyword Planner. Ninguna fuente externa está conectada a este entorno de prueba.
+La base técnica local está probada. El usuario ha confirmado que dispone de Metricool Advanced o Custom. El 17 de octubre de 2026 se ha verificado el acceso real a su API mediante consultas de lectura de marcas, publicaciones y calendario. La muestra de la marca seleccionada devuelve listas vacías; las métricas con resultados y la cobertura de web/blog siguen pendientes de verificar. El conector permanente dentro de la aplicación y la viabilidad del uso previsto de Keyword Planner continúan pendientes.
 
 ## Base y evidencia de ejecución
 
@@ -78,7 +78,7 @@ Estas correcciones quedan identificadas para fase 5; aún no se han modificado l
 | GSC y GA4 | Implementación presente; sin OAuth configurado ni propiedades conectadas. | Configurar proyecto Google, APIs, callbacks y secreto de cifrado; verificar una propiedad real. |
 | Ads y Keyword Planner | No hay acceso de cuenta verificado. | Comprobar developer token y nivel de planificación. La nota upstream `0004-keyword-data-source-routing.md` rechaza Keyword Planner directo para su uso SaaS por política; esa interpretación debe contrastarse con las condiciones oficiales y nuestro uso local concreto. No se da por resuelta por disponer de Basic o Standard. |
 | Semrush | Sin cuenta ni plan verificados en este entorno. | Confirmar funciones, acceso API/MCP y límites antes de asumir que una prueba los incluye. |
-| Metricool | El usuario confirma Advanced o Custom el 15 de octubre de 2026; acceso efectivo, marcas y permisos aún sin probar. | Priorizar la API para sincronización e histórico; validar una lectura de marcas y métricas. Evaluar MCP para consultas del agente. [API](https://help.metricool.com/es/guia-basica-para-la-integracion-de-api-r97af), [MCP](https://metricool.com/metricool-mcp-claude/). |
+| Metricool | Plan confirmado y autenticación real verificada el 17 de octubre de 2026. Marcas, publicaciones de LinkedIn y calendario responden HTTP 200; las dos muestras de la marca indicada están vacías. | Elegir una marca con actividad para comprobar métricas reales e histórico; verificar web/blog por separado. Después, construir el conector permanente. [API](https://help.metricool.com/es/guia-basica-para-la-integracion-de-api-r97af), [MCP](https://metricool.com/metricool-mcp-claude/). |
 | Clarity | Conector pendiente de construir. | Verificar proyecto y acceso; diseñar recogida histórica y límites en fase 4. |
 
 ## Arranque reproducible
@@ -120,7 +120,13 @@ Para una copia completa de este estado local, detener el servicio antes de archi
 | Base original y dependencias registradas | Completado en esta auditoría. |
 | Matriz de conocimiento y lagunas | Completada para las áreas y fuentes indicadas; correcciones asignadas a fases posteriores. |
 | DataForSEO opcional para el núcleo | Arranque y contexto sin clave verificados; adaptación de capacidades y mensajes en fase 2. |
-| Cuenta y capacidades Metricool | Plan con API confirmado por el usuario; pendiente prueba de cuenta, marcas y datos disponibles. |
+| Cuenta y capacidades Metricool | Acceso y descubrimiento de marcas verificados. Consultas de publicaciones y calendario aceptadas, sin filas en la muestra. Pendientes métricas con resultados, histórico y web/blog. |
+
+### Prueba de acceso a Metricool del 17 de octubre
+
+Se han realizado únicamente consultas GET autenticadas a `admin/simpleProfiles`, `v2/analytics/posts/linkedin` y `v2/scheduler/posts`, con el token en la cabecera `X-Mc-Auth`. La marca indicada tiene LinkedIn configurado. Sus publicaciones del 17 de septiembre al 16 de octubre y su calendario del 17 al 24 de octubre devuelven HTTP 200 con listas vacías, usando la zona horaria de la marca. Esto valida el acceso a esas consultas, pero no acredita métricas pobladas ni ausencia de actividad fuera de los periodos examinados.
+
+La evidencia resumida permanece en la carpeta local de evidencias, fuera de Git. Las credenciales se conservan en `.env.metricool.local`, ignorado por Git y con permisos 0600. Ningún token, identificador de cuenta, texto de publicación o lista de clientes se incorpora a este informe público.
 
 ## Siguiente entrega
 
